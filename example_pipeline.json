@@ -40,6 +40,12 @@
                 "args": {
                     "path": "poem.txt"
                 }
+            },
+            {
+                "script_id": "remove_file",
+                "args": {
+                    "path": "poem.txt"
+                }
             }
         ]
     }
