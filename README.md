@@ -35,4 +35,15 @@ To get started with the pipeline framework, follow these steps:
 
 4. **Monitor the Execution**: The framework will execute each task in the pipeline sequentially, using the specified interpreters and steps. Monitor the output for any errors or completion messages.
 
+    Example output:
+    ```
+    Created file poem.txt with text My poem: 
+    Appended text roses are red, violets are blue to poem.txt
+    My poem: roses are red, violets are blue
+    Replaced violets with pills in poem.txt
+    My poem: roses are red, pills are blue
+    Removed file poem.txt
+    Pipeline example_pipeline.json executed successfully
+    ```
+
 By following these steps, you can set up and run your own workflows using the pipeline framework.
