@@ -1,5 +1,5 @@
 import script_repository
-import instruction_repository
+import pipeline_repository
 import argparse
 
 
@@ -17,15 +17,11 @@ def execute_scripts(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("intruct_file", type=str)
+    parser.add_argument("pipeline_json_file", type=str)
     parser.add_argument("index", type=int)
     args = parser.parse_args()
-    instructions = instruction_repository.JsonInstructionRepository().get(
-        args.intruct_file
-    )
+    pipeline = pipeline_repository.JsonPipelineRepository().get(args.pipeline_json_file)
 
-    instruction = instructions[args.index]
+    task = pipeline[args.index]
     script_repository = script_repository.FileSystemScriptRepository()
-    execute_scripts(
-        instruction["interpreter"], instruction["scripts"], script_repository
-    )
+    execute_scripts(task["interpreter"], task["steps"], script_repository)
