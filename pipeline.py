@@ -4,15 +4,22 @@ import argparse
 
 
 def subprocess_run_instruction(
-    instruction_ref: str,
-    instruction_repository: pipeline_repository.AbstractPipelineRepository,
-):
-    instructions = instruction_repository.get(instruction_ref)
-    for index, instruction in enumerate(instructions):
-        interpreter = instruction["interpreter"]
-        subprocess.run(
-            [interpreter, "execute_pipeline_by_index.py", instruction_ref, str(index)]
-        )
+    pipeline_ref: str,
+    pipeline_repo: pipeline_repository.AbstractPipelineRepository,
+) -> None:
+    pipeline = pipeline_repo.get(pipeline_ref)
+    for index, task in enumerate(pipeline):
+        interpreter = task["interpreter"]
+        try:
+            result = subprocess.run(
+                [interpreter, "execute_pipeline_by_index.py", pipeline_ref, str(index)],
+                check=True,
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"Error executing task {index} in pipeline {pipeline_ref}")
+            return
+
+    print(f"Pipeline {pipeline_ref} executed successfully")
 
 
 if __name__ == "__main__":
