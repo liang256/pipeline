@@ -1,0 +1,45 @@
+[
+    {
+        "interpreter": "python",
+        "scripts": [
+            {
+                "script_id": "create_file",
+                "args": {
+                    "path": "poem.txt"
+                }
+            },
+            {
+                "script_id": "append_text",
+                "args": {
+                    "path": "poem.txt",
+                    "content": "Roses are red, violets are blue"
+                }
+            },
+            {
+                "script_id": "print_file",
+                "args": {
+                    "path": "poem.txt"
+                }
+            }
+        ]
+    },
+    {
+        "interpreter": "python",
+        "scripts": [
+            {
+                "script_id": "replace_text",
+                "args": {
+                    "path": "poem.txt",
+                    "old_text": "violets",
+                    "new_text": "roses"
+                }
+            },
+            {
+                "script_id": "print_file",
+                "args": {
+                    "path": "poem.txt"
+                }
+            }
+        ]
+    }
+]
