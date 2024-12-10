@@ -5,14 +5,15 @@
             {
                 "script_id": "create_file",
                 "args": {
-                    "path": "poem.txt"
+                    "path": "poem.txt",
+                    "text": "My poem: "
                 }
             },
             {
                 "script_id": "append_text",
                 "args": {
                     "path": "poem.txt",
-                    "content": "Roses are red, violets are blue"
+                    "text": "roses are red, violets are blue"
                 }
             },
             {
@@ -31,7 +32,7 @@
                 "args": {
                     "path": "poem.txt",
                     "old_text": "violets",
-                    "new_text": "roses"
+                    "new_text": "pills"
                 }
             },
             {

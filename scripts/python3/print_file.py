@@ -1,2 +1,4 @@
 def run(**args):
-    print(f"Printing file {args}...")
+    path = args.get("path")
+    with open(path, "r") as f:
+        print(f.read())
