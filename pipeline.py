@@ -1,5 +1,6 @@
 import pipeline_repository
 import subprocess
+import argparse
 
 
 def subprocess_run_instruction(
@@ -15,5 +16,8 @@ def subprocess_run_instruction(
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("file", type=str)
+    args = parser.parse_args()
     pipeline_repository = pipeline_repository.JsonPipelineRepository()
-    subprocess_run_instruction("pipeline.json", pipeline_repository)
+    subprocess_run_instruction(args.file, pipeline_repository)
