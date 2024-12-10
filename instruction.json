@@ -1,6 +1,6 @@
 [
     {
-        "interpreter": "python",
+        "interpreter": "python3",
         "scripts": [
             {
                 "script_id": "create_file",
@@ -24,7 +24,7 @@
         ]
     },
     {
-        "interpreter": "python",
+        "interpreter": "python3",
         "scripts": [
             {
                 "script_id": "replace_text",
