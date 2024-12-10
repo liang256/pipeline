@@ -24,8 +24,8 @@ To get started with the pipeline framework, follow these steps:
 
 2. **Clone the Repository**: Clone the project repository to your local machine.
     ```sh
-    git clone https://github.com/yourusername/pipeline-framework.git
-    cd pipeline-framework
+    git clone https://github.com/liang256/pipeline.git
+    cd pipeline
     ```
 
 3. **Run the Pipeline**: Execute the pipeline using the following command:
