@@ -1,20 +1,33 @@
-# Pipeline Framework Documentation
+# Cross-DCC Collaboration Framework
 
-This framework is designed to execute workflows across various interpreters (e.g., mayapy, hython, nuke, blender). It organizes tasks into pipelines, where each task is associated with a specific interpreter and a sequence of steps.
+This framework is designed to enable seamless collaboration across multiple DCC (Digital Content Creation) tools by acting as a flexible script runner. It executes tasks based on user-defined JSON pipeline files, providing flexibility without enforcing strict rules about formats or workflows.
 
-## Structure Overview
+## Goal
+To support workflows like creating a sphere in Maya, exporting it, and rendering it in Houdini, while preserving the unique strengths of each tool.
 
-### Pipeline
+## Key Features
+1. **Independent Script Runner**  
+   - Operates independently and sends commands to DCC tools (e.g., Maya, Houdini) without embedding into any single tool.
 
-A pipeline represents the overall execution unit that contains one or more tasks. Each task is executed independently by its respective interpreter.
+2. **Respects Specialized Capabilities**  
+   - Avoids over-abstraction, letting each tool excel in its strengths (e.g., lighting in Katana, effects in Houdini).
 
-### Task
+3. **User-Defined Pipelines**  
+   - Users define their own workflows in JSON files, specifying scripts, interpreters, and arguments for each task. The framework executes these tasks sequentially as described in the pipeline.
 
-A task is associated with a specific interpreter and consists of a list of steps. These steps define the operations to be executed sequentially.
+4. **Ease of Adoption**  
+   - Artists can continue using familiar tools and scripts without learning new workflows or dealing with unnecessary abstractions.
 
-### Step
+## Example Workflow
+1. Create a sphere and export it in Maya.
+2. Import and render the sphere in Houdini with added lights and cameras.
 
-A step specifies an individual operation within a task. It includes the script ID to identify the operation and any arguments required to execute it.
+## How to Use
+1. Prepare your pipeline JSON file (see `example_pipeline.json` for reference).
+2. Run the pipeline using:
+   ```bash
+   python pipeline.py <pipeline_file>
+   ```
 
 ## Get Started
 
@@ -32,9 +45,6 @@ To get started with the pipeline framework, follow these steps:
     ```sh
     python3 pipeline.py example_pipeline.json
     ```
-
-4. **Monitor the Execution**: The framework will execute each task in the pipeline sequentially, using the specified interpreters and steps. Monitor the output for any errors or completion messages.
-
     Example output:
     ```
     Created file poem.txt with text My poem: 
@@ -45,5 +55,3 @@ To get started with the pipeline framework, follow these steps:
     Removed file poem.txt
     Pipeline example_pipeline.json executed successfully
     ```
-
-By following these steps, you can set up and run your own workflows using the pipeline framework.
